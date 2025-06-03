@@ -21,6 +21,7 @@ public class CatchLog extends JFrame {
     private JLabel gefangen_label;
 
 
+
     //Erstellen eines Konstruktors
     public CatchLog() {
         setTitle("Catch Log");
