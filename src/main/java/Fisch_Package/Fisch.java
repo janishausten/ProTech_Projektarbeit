@@ -17,13 +17,12 @@ public class Fisch {
         this.gefangen = gefangen;
     }
 
-    public String ausgeben (){
-        System.out.println("Fischart: " + fischart);
-        System.out.println("Größe: " + groeßeInCm + " cm");
-        System.out.println("Gewicht: " + gewichtInGramm + " g");
-        System.out.println("Ort: " + ort);
-        System.out.println("Datum: " + datum);
-        System.out.println("Gefangen: " + (gefangen ? "behalten" : "zurückgesetzt"));
-
+    public String ausgeben() {
+        return "Fischart: " + fischart +
+                ", Größe: " + groeßeInCm + " cm" +
+                ", Gewicht: " + gewichtInGramm + " g" +
+                ", Ort: " + ort +
+                ", Datum: " + datum +
+                ", Gefangen: " + (gefangen ? "behalten" : "zurückgesetzt");
     }
 }
