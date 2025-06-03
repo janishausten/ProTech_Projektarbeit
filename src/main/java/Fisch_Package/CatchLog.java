@@ -13,12 +13,15 @@ public class CatchLog extends JFrame {
     private JButton eintragenButton;
     private JButton fangbuchAnzeigenButton;
     private JButton auswahlLöschenButton;
-
+    private JPanel CatchLog;
 
 
     public CatchLog() {
         setTitle("Catch Log");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setSize(1500, 1500);
+        setContentPane(CatchLog);
+        setVisible(true);
     }
 
 }
