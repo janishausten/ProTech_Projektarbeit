@@ -8,7 +8,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="eb47b" class="javax.swing.JLabel" binding="FIschart_textField">
+      <component id="eb47b" class="javax.swing.JLabel" binding="fischart_label">
         <constraints>
           <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -16,7 +16,7 @@
           <text value="Fischart"/>
         </properties>
       </component>
-      <component id="fe7c4" class="javax.swing.JLabel">
+      <component id="fe7c4" class="javax.swing.JLabel" binding="datum_label">
         <constraints>
           <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -24,13 +24,13 @@
           <text value="Datum"/>
         </properties>
       </component>
-      <component id="d3640" class="javax.swing.JComboBox" binding="comboBox1" default-binding="true">
+      <component id="d3640" class="javax.swing.JComboBox" binding="fischart_combobox">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
       </component>
-      <component id="deacd" class="javax.swing.JLabel">
+      <component id="deacd" class="javax.swing.JLabel" binding="groeße_label">
         <constraints>
           <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -38,7 +38,7 @@
           <text value="Größe (cm)"/>
         </properties>
       </component>
-      <component id="dbb3b" class="javax.swing.JLabel">
+      <component id="dbb3b" class="javax.swing.JLabel" binding="ort_label">
         <constraints>
           <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -46,7 +46,7 @@
           <text value="Ort"/>
         </properties>
       </component>
-      <component id="fcfc7" class="javax.swing.JTextField" binding="textField1" default-binding="true">
+      <component id="fcfc7" class="javax.swing.JTextField" binding="datum_textfeld">
         <constraints>
           <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -54,7 +54,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="71a89" class="javax.swing.JTextField" binding="textField2" default-binding="true">
+      <component id="71a89" class="javax.swing.JTextField" binding="groeße_textfeld">
         <constraints>
           <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -62,7 +62,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="b0309" class="javax.swing.JTextField" binding="textField3" default-binding="true">
+      <component id="b0309" class="javax.swing.JTextField" binding="ort_textfeld">
         <constraints>
           <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -70,7 +70,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="788e1" class="javax.swing.JLabel">
+      <component id="788e1" class="javax.swing.JLabel" binding="gewicht_label">
         <constraints>
           <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -78,7 +78,7 @@
           <text value="Gewicht (gramm)"/>
         </properties>
       </component>
-      <component id="3596d" class="javax.swing.JTextField" binding="textField4" default-binding="true">
+      <component id="3596d" class="javax.swing.JTextField" binding="gewicht_textfeld">
         <constraints>
           <grid row="0" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
             <preferred-size width="150" height="-1"/>
@@ -86,7 +86,7 @@
         </constraints>
         <properties/>
       </component>
-      <component id="faaa" class="javax.swing.JButton" binding="eintragenButton" default-binding="true">
+      <component id="faaa" class="javax.swing.JButton" binding="eintragen_button">
         <constraints>
           <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -94,7 +94,7 @@
           <text value="Eintragen"/>
         </properties>
       </component>
-      <component id="6bd40" class="javax.swing.JLabel">
+      <component id="6bd40" class="javax.swing.JLabel" binding="gefangen_label">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -102,7 +102,7 @@
           <text value="Gefangen?"/>
         </properties>
       </component>
-      <component id="761e3" class="javax.swing.JRadioButton" binding="jaRadioButton" default-binding="true">
+      <component id="761e3" class="javax.swing.JRadioButton" binding="gefanngen_jradiobutton">
         <constraints>
           <grid row="1" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
@@ -110,7 +110,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="2109b" class="javax.swing.JButton" binding="auswahlLöschenButton" default-binding="true">
+      <component id="2109b" class="javax.swing.JButton" binding="auswahlLöschen_jbutton">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>

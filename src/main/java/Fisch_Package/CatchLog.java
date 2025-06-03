@@ -3,17 +3,22 @@ package Fisch_Package;
 import javax.swing.*;
 
 public class CatchLog extends JFrame {
-    private JComboBox comboBox1;
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JLabel FIschart_textField;
-    private JTextField textField4;
-    private JRadioButton jaRadioButton;
-    private JButton eintragenButton;
+    private JComboBox fischart_combobox;
+    private JTextField datum_textfeld;
+    private JTextField groeße_textfeld;
+    private JTextField ort_textfeld;
+    private JLabel fischart_label;
+    private JTextField gewicht_textfeld;
+    private JRadioButton gefanngen_jradiobutton;
+    private JButton eintragen_button;
     private JButton fangbuchAnzeigenButton;
-    private JButton auswahlLöschenButton;
+    private JButton auswahlLöschen_jbutton;
     private JPanel CatchLog;
+    private JLabel datum_label;
+    private JLabel groeße_label;
+    private JLabel ort_label;
+    private JLabel gewicht_label;
+    private JLabel gefangen_label;
 
 
     //Erstellen eines Konstruktors
