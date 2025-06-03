@@ -16,6 +16,7 @@ public class CatchLog extends JFrame {
     private JPanel CatchLog;
 
 
+    //Erstellen eines Konstruktors
     public CatchLog() {
         setTitle("Catch Log");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
