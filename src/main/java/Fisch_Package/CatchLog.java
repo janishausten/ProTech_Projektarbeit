@@ -2,7 +2,7 @@ package Fisch_Package;
 
 import javax.swing.*;
 
-public class Fischbuch {
+public class CatchLog {
     private JComboBox comboBox1;
     private JTextField textField1;
     private JTextField textField2;
