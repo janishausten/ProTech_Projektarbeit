@@ -2,7 +2,7 @@ package Fisch_Package;
 
 import javax.swing.*;
 
-public class CatchLog {
+public class CatchLog extends JFrame {
     private JComboBox comboBox1;
     private JTextField textField1;
     private JTextField textField2;
@@ -13,4 +13,12 @@ public class CatchLog {
     private JButton eintragenButton;
     private JButton fangbuchAnzeigenButton;
     private JButton auswahlLöschenButton;
+
+
+
+    public CatchLog() {
+        setTitle("Catch Log");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
+
 }
