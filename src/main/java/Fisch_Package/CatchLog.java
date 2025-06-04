@@ -19,7 +19,7 @@ public class CatchLog extends JFrame {
     private JLabel ort_label;
     private JLabel gewicht_label;
     private JLabel gefangen_label;
-
+    private JTextField neueFischart_textfeld;
 
 
     //Erstellen eines Konstruktors
@@ -30,5 +30,6 @@ public class CatchLog extends JFrame {
         setContentPane(CatchLog);
         setVisible(true);
     }
+
 
 }
