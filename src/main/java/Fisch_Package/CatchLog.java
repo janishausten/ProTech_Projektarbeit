@@ -1,6 +1,7 @@
 package Fisch_Package;
 
 import javax.swing.*;
+import java.util.ArrayList;
 
 public class CatchLog extends JFrame {
     private JComboBox fischart_combobox;
@@ -21,6 +22,8 @@ public class CatchLog extends JFrame {
     private JLabel gefangen_label;
     private JTextField neueFischart_textfeld;
 
+    //Erstellen der Arraylist, in welcher die Fische gespeichert werden
+    private ArrayList<Fisch> FischListe = new ArrayList<Fisch>();
 
     //Erstellen eines Konstruktors
     public CatchLog() {
