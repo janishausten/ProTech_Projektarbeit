@@ -14,7 +14,7 @@ public class CatchLog extends JFrame {
     private JTextField gewicht_textfeld;
     private JRadioButton gefanngen_jradiobutton;
     private JButton eintragen_button;
-    private JButton ausgabe_textfeld;
+    private JButton ausgabe_jbutton;
     private JButton auswahlLöschen_jbutton;
     private JPanel CatchLog;
     private JLabel datum_label;
@@ -52,7 +52,7 @@ public class CatchLog extends JFrame {
         });
 
 
-        ausgabe_textfeld.addActionListener(new ActionListener() {
+        ausgabe_jbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
