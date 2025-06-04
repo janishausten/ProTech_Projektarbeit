@@ -1,6 +1,8 @@
 package Fisch_Package;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class CatchLog extends JFrame {
@@ -12,7 +14,7 @@ public class CatchLog extends JFrame {
     private JTextField gewicht_textfeld;
     private JRadioButton gefanngen_jradiobutton;
     private JButton eintragen_button;
-    private JButton fangbuchAnzeigenButton;
+    private JButton ausgabe_textfeld;
     private JButton auswahlLöschen_jbutton;
     private JPanel CatchLog;
     private JLabel datum_label;
@@ -32,7 +34,34 @@ public class CatchLog extends JFrame {
         setSize(1500, 1500);
         setContentPane(CatchLog);
         setVisible(true);
+
+
+        eintragen_button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+
+        auswahlLöschen_jbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
+
+
+        ausgabe_textfeld.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
 
 
+    public static void main(String[] args) {
+        new CatchLog();
+    }
 }
