@@ -59,6 +59,8 @@ public class CatchLog extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String fischart = fischart_combobox.getSelectedItem().toString();
                 String datum = datum_textfeld.getText();
+
+                // Datum auf Format prüfen
                 if (!Pattern.matches("\\d{2}\\.\\d{2}\\.\\d{4}", datum)) {
                     JOptionPane.showMessageDialog(CatchLog, "Bitte gib das Datum im Format TT.MM.JJJJ ein!", "Fehler", JOptionPane.ERROR_MESSAGE);
                     datum_textfeld.setText("");
@@ -69,6 +71,7 @@ public class CatchLog extends JFrame {
                 double groeße;
                 double gewicht;
 
+                // Größe u. Gewicht Zahlen überprüfen
                 try {
                     groeße = Double.parseDouble(groeße_textfeld.getText());
                     gewicht = Double.parseDouble(gewicht_textfeld.getText());
@@ -79,13 +82,17 @@ public class CatchLog extends JFrame {
                     return;
                 }
 
+                // Wurden alle Felder befüllt?
                 if (fischart.isEmpty() || datum.isEmpty() || ort.isEmpty()) {
                     JOptionPane.showMessageDialog(CatchLog, "Bitte alle Felder ausfüllen!", "Fehler", JOptionPane.ERROR_MESSAGE);
                     return;
                 }
 
+                // Fisch-Objekt erzeugen und speichern
                 Fisch fisch = new Fisch(fischart, groeße, gewicht, ort, datum, gefangen);
                 FischListe.add(fisch);
+
+                // Bestätigung und Felder leeren
                 JOptionPane.showMessageDialog(CatchLog, "Fang erfolgreich gespeichert!", "Erfolg", JOptionPane.INFORMATION_MESSAGE);
                 clearTextfields();
             }
@@ -142,6 +149,7 @@ public class CatchLog extends JFrame {
         });
     }
 
+    // Eingabefelder zurücksetzen
     private void clearTextfields() {
         datum_textfeld.setText("");
         groeße_textfeld.setText("");
