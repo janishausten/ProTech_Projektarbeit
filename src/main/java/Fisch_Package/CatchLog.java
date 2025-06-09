@@ -22,6 +22,7 @@ public class CatchLog extends JFrame {
     private JLabel ort_label;
     private JLabel gewicht_label;
     private JLabel gefangen_label;
+    private JTextArea ausgabe_textarea;
 
     private ArrayList<Fisch> FischListe = new ArrayList<>();
 
@@ -77,11 +78,19 @@ public class CatchLog extends JFrame {
             }
         });
 
-
         ausgabe_jbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                ausgabe_textarea.setText(""); // vorherige Ausgabe löschen
 
+                if (FischListe.isEmpty()) {
+                    ausgabe_textarea.setText("Noch keine Fänge eingetragen.");
+                    return;
+                }
+
+                for (Fisch fisch : FischListe) {
+                    ausgabe_textarea.setText(ausgabe_textarea.getText() + fisch.ausgeben() + "\n");
+                }
             }
         });
     }
