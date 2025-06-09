@@ -32,6 +32,7 @@ public class CatchLog extends JFrame {
         setSize(1200, 600);
         setContentPane(CatchLog);
         setVisible(true);
+        initObjekte();
 
         // Eintragen-Button
         eintragen_button.addActionListener(new ActionListener() {
@@ -102,6 +103,16 @@ public class CatchLog extends JFrame {
         ort_textfeld.setText("");
         gefangen_jradiobutton.setSelected(false);
         fischart_combobox.setSelectedIndex(0);
+    }
+
+    private void initObjekte() {
+        Fisch f1 = new Fisch("Zander", 45.0, 1200.0, "Bodensee", "01.05.2024", true);
+        Fisch f2 = new Fisch("Hecht", 78.0, 3500.0, "Zellersee", "12.04.2024", false);
+        Fisch f3 = new Fisch("Karpfen", 60.0, 5000.0, "Baggersee Sattenbeuren", "20.03.2024", true);
+
+        FischListe.add(f1);
+        FischListe.add(f2);
+        FischListe.add(f3);
     }
 
     public static void main(String[] args) {
