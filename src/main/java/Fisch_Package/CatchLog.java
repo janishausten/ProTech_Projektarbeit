@@ -165,3 +165,4 @@ public class CatchLog extends JFrame {
         new CatchLog();
     }
 }
+
