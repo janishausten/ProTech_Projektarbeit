@@ -4,7 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.regex.Pattern;
+import java.util.regex.Pattern; // Datum
+import java.awt.Color; // Farben
 
 public class CatchLog extends JFrame {
     private JComboBox fischart_combobox;
@@ -32,6 +33,18 @@ public class CatchLog extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200, 600);
         setContentPane(CatchLog);
+        // Hintergrundfarbe für das Panel
+        CatchLog.setBackground(new Color(200, 220, 240));  // helles Angelblau
+
+        // Button-Farben direkt setzen
+        eintragen_button.setBackground(new Color(70, 130, 180));   // Blau
+        eintragen_button.setForeground(Color.BLACK);
+
+        ausgabe_jbutton.setBackground(new Color(70, 130, 180));
+        ausgabe_jbutton.setForeground(Color.BLACK);
+
+        auswahlLöschen_jbutton.setBackground(new Color(70, 130, 180));
+        auswahlLöschen_jbutton.setForeground(Color.BLACK);
         setVisible(true);
         initObjekte();
 
