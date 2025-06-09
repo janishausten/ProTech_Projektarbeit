@@ -146,7 +146,7 @@
             <item value="Seeforelle"/>
             <item value="Wels"/>
             <item value="Zander"/>
-            <item value="+ Eigene Fischart hinzufügen"/>
+            <item value="Andere Fischart"/>
           </model>
         </properties>
       </component>
