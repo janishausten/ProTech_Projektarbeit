@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 public class CatchLog extends JFrame {
     private JComboBox fischart_combobox;
@@ -40,6 +41,11 @@ public class CatchLog extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 String fischart = fischart_combobox.getSelectedItem().toString();
                 String datum = datum_textfeld.getText();
+                if (!Pattern.matches("\\d{2}\\.\\d{2}\\.\\d{4}", datum)) {
+                    JOptionPane.showMessageDialog(CatchLog, "Bitte gib das Datum im Format TT.MM.JJJJ ein!", "Fehler", JOptionPane.ERROR_MESSAGE);
+                    datum_textfeld.setText("");
+                    return;
+                }
                 String ort = ort_textfeld.getText();
                 boolean gefangen = gefangen_jradiobutton.isSelected();
                 double groeße;
