@@ -4,8 +4,8 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.regex.Pattern; // Datum
-import java.awt.Color; // Farben
+import java.util.regex.Pattern; // für Datum
+import java.awt.Color; // für Farben
 
 public class CatchLog extends JFrame {
     private JComboBox fischart_combobox;
@@ -23,8 +23,10 @@ public class CatchLog extends JFrame {
     private JLabel groeße_label;
     private JLabel ort_label;
     private JLabel gewicht_label;
-    private JLabel gefangen_label;
+    private JLabel behalten_label;
     private JTextArea ausgabe_textarea;
+    private JButton nurbehalten_jbutton;
+    private JButton nurZurueckgesetzt_jbutton;
 
     private ArrayList<Fisch> FischListe = new ArrayList<>();
 
@@ -33,11 +35,10 @@ public class CatchLog extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200, 600);
         setContentPane(CatchLog);
-        // Hintergrundfarbe für das Panel
         CatchLog.setBackground(new Color(200, 220, 240));  // helles Angelblau
 
-        // Button-Farben direkt setzen
-        eintragen_button.setBackground(new Color(70, 130, 180));   // Blau
+        // Button-Styling
+        eintragen_button.setBackground(new Color(70, 130, 180));
         eintragen_button.setForeground(Color.BLACK);
 
         ausgabe_jbutton.setBackground(new Color(70, 130, 180));
@@ -45,10 +46,14 @@ public class CatchLog extends JFrame {
 
         auswahlLöschen_jbutton.setBackground(new Color(70, 130, 180));
         auswahlLöschen_jbutton.setForeground(Color.BLACK);
+
+        nurbehalten_jbutton.setBackground(new Color(100, 160, 200));
+        nurZurueckgesetzt_jbutton.setBackground(new Color(100, 160, 200));
+
         setVisible(true);
         initObjekte();
 
-        // Eintragen-Button
+        // Eintragen
         eintragen_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -64,7 +69,6 @@ public class CatchLog extends JFrame {
                 double groeße;
                 double gewicht;
 
-                // Try catch
                 try {
                     groeße = Double.parseDouble(groeße_textfeld.getText());
                     gewicht = Double.parseDouble(gewicht_textfeld.getText());
@@ -75,7 +79,6 @@ public class CatchLog extends JFrame {
                     return;
                 }
 
-                // Pflichtfelder prüfen
                 if (fischart.isEmpty() || datum.isEmpty() || ort.isEmpty()) {
                     JOptionPane.showMessageDialog(CatchLog, "Bitte alle Felder ausfüllen!", "Fehler", JOptionPane.ERROR_MESSAGE);
                     return;
@@ -83,34 +86,58 @@ public class CatchLog extends JFrame {
 
                 Fisch fisch = new Fisch(fischart, groeße, gewicht, ort, datum, gefangen);
                 FischListe.add(fisch);
-
                 JOptionPane.showMessageDialog(CatchLog, "Fang erfolgreich gespeichert!", "Erfolg", JOptionPane.INFORMATION_MESSAGE);
                 clearTextfields();
             }
         });
 
-
-        auswahlLöschen_jbutton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                clearTextfields();
-
-            }
-        });
-
+        // Alle Fische anzeigen
         ausgabe_jbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ausgabe_textarea.setText(""); // vorherige Ausgabe löschen
-
+                ausgabe_textarea.setText("");
                 if (FischListe.isEmpty()) {
                     ausgabe_textarea.setText("Noch keine Fänge eingetragen.");
                     return;
                 }
 
                 for (Fisch fisch : FischListe) {
-                    ausgabe_textarea.setText(ausgabe_textarea.getText() + fisch.ausgeben() + "\n");
+                    ausgabe_textarea.append(fisch.ausgeben() + "\n");
                 }
+            }
+        });
+
+        // Nur behaltene Fische anzeigen
+        nurbehalten_jbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ausgabe_textarea.setText("");
+                for (Fisch fisch : FischListe) {
+                    if (fisch.isBehalten()) {
+                        ausgabe_textarea.append(fisch.ausgeben() + "\n");
+                    }
+                }
+            }
+        });
+
+        // Nur zurückgesetzte Fische anzeigen
+        nurZurueckgesetzt_jbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                ausgabe_textarea.setText("");
+                for (Fisch fisch : FischListe) {
+                    if (!fisch.isBehalten()) {
+                        ausgabe_textarea.append(fisch.ausgeben() + "\n");
+                    }
+                }
+            }
+        });
+
+        // Eingaben löschen
+        auswahlLöschen_jbutton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                clearTextfields();
             }
         });
     }

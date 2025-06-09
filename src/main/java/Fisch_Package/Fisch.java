@@ -8,6 +8,7 @@ public class Fisch {
     private String datum;
     private boolean gefangen;
 
+
     public Fisch(String fischart, double groeßeInCm, double gewichtInGramm, String ort, String datum, boolean gefangen) {
         this.fischart = fischart;
         this.groeßeInCm = groeßeInCm;
@@ -15,6 +16,10 @@ public class Fisch {
         this.ort = ort;
         this.datum = datum;
         this.gefangen = gefangen;
+    }
+
+    public boolean isBehalten() {
+        return gefangen;
     }
 
     public String ausgeben() {
