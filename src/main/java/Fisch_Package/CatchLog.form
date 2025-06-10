@@ -12,7 +12,7 @@
     <children>
       <component id="eb47b" class="javax.swing.JLabel" binding="fischart_label">
         <constraints>
-          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="0" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Helvetica" style="1"/>
@@ -21,7 +21,7 @@
       </component>
       <component id="fe7c4" class="javax.swing.JLabel" binding="datum_label">
         <constraints>
-          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Helvetica" style="1"/>
@@ -30,7 +30,7 @@
       </component>
       <component id="deacd" class="javax.swing.JLabel" binding="groeße_label">
         <constraints>
-          <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="2" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Helvetica" style="1"/>
@@ -39,7 +39,7 @@
       </component>
       <component id="dbb3b" class="javax.swing.JLabel" binding="ort_label">
         <constraints>
-          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Helvetica" style="1"/>
@@ -52,7 +52,9 @@
             <preferred-size width="150" height="-1"/>
           </grid>
         </constraints>
-        <properties/>
+        <properties>
+          <text value="TT.MM.JJJJ"/>
+        </properties>
       </component>
       <component id="71a89" class="javax.swing.JTextField" binding="groeße_textfeld">
         <constraints>
@@ -72,7 +74,7 @@
       </component>
       <component id="788e1" class="javax.swing.JLabel" binding="gewicht_label">
         <constraints>
-          <grid row="0" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="0" column="4" row-span="2" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Helvetica" style="1"/>
@@ -98,7 +100,7 @@
       </component>
       <component id="6bd40" class="javax.swing.JLabel" binding="behalten_label">
         <constraints>
-          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="4" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <font name="Helvetica" style="1"/>
@@ -178,6 +180,7 @@
           <grid row="5" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Helvetica" style="1"/>
           <text value="Nur behaltene Fische anzeigen"/>
         </properties>
       </component>
@@ -186,12 +189,13 @@
           <grid row="6" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
+          <font name="Helvetica" style="1"/>
           <text value="Nur zurückgesetzte Fische anzeigen"/>
         </properties>
       </component>
       <component id="ece0f" class="javax.swing.JLabel">
         <constraints>
-          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+          <grid row="5" column="0" row-span="2" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <icon value="CatchLog Logo.jpg"/>

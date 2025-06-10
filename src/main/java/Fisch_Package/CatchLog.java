@@ -31,7 +31,7 @@ public class CatchLog extends JFrame {
     private ArrayList<Fisch> FischListe = new ArrayList<>();
 
     public CatchLog() {
-        setTitle("Catch Log");
+        setTitle("CatchLog");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1200, 600);
         setContentPane(CatchLog);
@@ -76,7 +76,7 @@ public class CatchLog extends JFrame {
                     groeße = Double.parseDouble(groeße_textfeld.getText());
                     gewicht = Double.parseDouble(gewicht_textfeld.getText());
                 } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(CatchLog, "Bitte nur Zahlen für Größe und Gewicht eingeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(CatchLog, "Bitte Zahlen für Größe und Gewicht eingeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
                     groeße_textfeld.setText("");
                     gewicht_textfeld.setText("");
                     return;
