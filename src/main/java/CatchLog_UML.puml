@@ -1,0 +1,43 @@
+@startuml
+title UML-Diagramm – CatchLog und Fisch
+
+package "Fisch_Package" {
+
+class CatchLog {
+  - fischart_combobox : JComboBox
+  - datum_textfeld : JTextField
+  - groeße_textfeld : JTextField
+  - ort_textfeld : JTextField
+  - gewicht_textfeld : JTextField
+  - gefangen_jradiobutton : JRadioButton
+  - eintragen_button : JButton
+  - ausgabe_jbutton : JButton
+  - auswahlLöschen_jbutton : JButton
+  - nurbehalten_jbutton : JButton
+  - nurZurueckgesetzt_jbutton : JButton
+  - ausgabe_textarea : JTextArea
+  - FischListe : ArrayList<Fisch>
+
+  + CatchLog()
+  + main(args : String[]) : void
+  - clearTextfields() : void
+  - initObjekte() : void
+}
+
+class Fisch {
+  - fischart : String
+  - groeßeInCm : double
+  - gewichtInGramm : double
+  - ort : String
+  - datum : String
+  - gefangen : boolean
+
+  + Fisch(fischart : String, groeßeInCm : double, gewichtInGramm : double, ort : String, datum : String, gefangen : boolean)
+  + isBehalten() : boolean
+  + ausgeben() : String
+}
+
+CatchLog --> "0..*" Fisch : verwendet
+}
+
+@enduml
