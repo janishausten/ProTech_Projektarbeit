@@ -37,6 +37,23 @@ public class CatchLog extends JFrame {
         setContentPane(CatchLog);
         CatchLog.setBackground(new Color(200, 220, 240));  // helles Angelblau
 
+        // Placeholder für datum_textfeld
+        datum_textfeld.setText("TT.MM.JJJJ");
+        datum_textfeld.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                if (datum_textfeld.getText().equals("TT.MM.JJJJ")) {
+                    datum_textfeld.setText("");
+                }
+            }
+            @Override
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                if (datum_textfeld.getText().isEmpty()) {
+                    datum_textfeld.setText("TT.MM.JJJJ");
+                }
+            }
+        });
+
         // Button-Styling
         eintragen_button.setBackground(new Color(70, 130, 180));
         eintragen_button.setForeground(Color.BLACK);
@@ -57,34 +74,46 @@ public class CatchLog extends JFrame {
         eintragen_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String fischart = fischart_combobox.getSelectedItem().toString();
-                String datum = datum_textfeld.getText();
+                String fischart = (fischart_combobox.getSelectedItem() != null) ? fischart_combobox.getSelectedItem().toString().trim() : "";
+                String datum = datum_textfeld.getText().trim();
+                String ort = ort_textfeld.getText().trim();
 
+                // Wurden alle Felder befüllt?
+                if (fischart.isEmpty() || datum.isEmpty() || ort.isEmpty() || groeße_textfeld.getText().trim().isEmpty() || gewicht_textfeld.getText().trim().isEmpty()) {
+                    JOptionPane.showMessageDialog(CatchLog, "Bitte alle Felder ausfüllen!", "Fehler", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+
+                // 'Ort' enthält mindestens einen Buchstaben, nicht nur Zahlen
+                if (!Pattern.matches(".*[a-zA-ZäöüÄÖÜß].*", ort)) {
+                    JOptionPane.showMessageDialog(CatchLog, "Bitte einen gültigen Ort eingeben (muss Text enthalten)!", "Fehler", JOptionPane.ERROR_MESSAGE);
+                    ort_textfeld.requestFocusInWindow();
+                    return;
+                }
                 // Datum auf Format prüfen
                 if (!Pattern.matches("\\d{2}\\.\\d{2}\\.\\d{4}", datum)) {
                     JOptionPane.showMessageDialog(CatchLog, "Bitte gib das Datum im Format TT.MM.JJJJ ein!", "Fehler", JOptionPane.ERROR_MESSAGE);
                     datum_textfeld.setText("");
+                    datum_textfeld.requestFocusInWindow();
                     return;
                 }
-                String ort = ort_textfeld.getText();
+
                 boolean gefangen = gefangen_jradiobutton.isSelected();
                 double groeße;
                 double gewicht;
 
-                // Größe u. Gewicht Zahlen überprüfen
+                // Größe u. Gewicht Zahlen überprüfen und > 0 prüfen
                 try {
                     groeße = Double.parseDouble(groeße_textfeld.getText());
                     gewicht = Double.parseDouble(gewicht_textfeld.getText());
-                } catch (Exception ex) {
-                    JOptionPane.showMessageDialog(CatchLog, "Bitte Zahlen für Größe und Gewicht eingeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
+                    if (groeße <= 0 || gewicht <= 0) {
+                        throw new NumberFormatException("Größe und Gewicht müssen positiv sein.");
+                    }
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(CatchLog, "Bitte gültige positive Zahlen für Größe und Gewicht eingeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
                     groeße_textfeld.setText("");
                     gewicht_textfeld.setText("");
-                    return;
-                }
-
-                // Wurden alle Felder befüllt?
-                if (fischart.isEmpty() || datum.isEmpty() || ort.isEmpty()) {
-                    JOptionPane.showMessageDialog(CatchLog, "Bitte alle Felder ausfüllen!", "Fehler", JOptionPane.ERROR_MESSAGE);
+                    groeße_textfeld.requestFocusInWindow();
                     return;
                 }
 
@@ -92,9 +121,10 @@ public class CatchLog extends JFrame {
                 Fisch fisch = new Fisch(fischart, groeße, gewicht, ort, datum, gefangen);
                 FischListe.add(fisch);
 
-                // Bestätigung und Felder leeren
+                // Bestätigung und Felder leeren, Fokus auf Datum zurücksetzen für bessere UX
                 JOptionPane.showMessageDialog(CatchLog, "Fang erfolgreich gespeichert!", "Erfolg", JOptionPane.INFORMATION_MESSAGE);
                 clearTextfields();
+                datum_textfeld.requestFocusInWindow();
             }
         });
 
@@ -145,6 +175,7 @@ public class CatchLog extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 clearTextfields();
+                datum_textfeld.requestFocusInWindow();
             }
         });
     }
@@ -173,4 +204,5 @@ public class CatchLog extends JFrame {
         new CatchLog();
     }
 }
+
 
