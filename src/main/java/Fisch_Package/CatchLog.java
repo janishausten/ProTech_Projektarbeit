@@ -37,6 +37,9 @@ public class CatchLog extends JFrame {
         setContentPane(CatchLog);
         CatchLog.setBackground(new Color(200, 220, 240));  // helles Angelblau
 
+        // Output text area wird read-only
+        ausgabe_textarea.setEditable(false);
+
         // Placeholder für datum_textfeld
         datum_textfeld.setText("TT.MM.JJJJ");
         datum_textfeld.addFocusListener(new java.awt.event.FocusAdapter() {
