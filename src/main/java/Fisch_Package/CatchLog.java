@@ -25,7 +25,7 @@ public class CatchLog extends JFrame {
     private JLabel gewicht_label;
     private JLabel behalten_label;
     private JTextArea ausgabe_textarea;
-    private JButton nurbehalten_jbutton;
+    private JButton nurBehalten_jbutton;
     private JButton nurZurueckgesetzt_jbutton;
 
     private ArrayList<Fisch> FischListe = new ArrayList<>();
@@ -67,7 +67,7 @@ public class CatchLog extends JFrame {
         auswahlLöschen_jbutton.setBackground(new Color(70, 130, 180));
         auswahlLöschen_jbutton.setForeground(Color.BLACK);
 
-        nurbehalten_jbutton.setBackground(new Color(100, 160, 200));
+        nurBehalten_jbutton.setBackground(new Color(100, 160, 200));
         nurZurueckgesetzt_jbutton.setBackground(new Color(100, 160, 200));
 
         setVisible(true);
@@ -149,7 +149,7 @@ public class CatchLog extends JFrame {
         });
 
         // Nur behaltene Fische anzeigen
-        nurbehalten_jbutton.addActionListener(new ActionListener() {
+        nurBehalten_jbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 ausgabe_textarea.setText("");
