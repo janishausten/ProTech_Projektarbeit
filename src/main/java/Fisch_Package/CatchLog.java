@@ -94,6 +94,7 @@ public class CatchLog extends JFrame {
                     return;
                 }
                 // Datum auf Format prüfen
+                // Quelle: https://www.java-forum.org/thema/datum-ueberpruefen.5552/
                 if (!Pattern.matches("\\d{2}\\.\\d{2}\\.\\d{4}", datum)) {
                     JOptionPane.showMessageDialog(CatchLog, "Bitte gib das Datum im Format TT.MM.JJJJ ein!", "Fehler", JOptionPane.ERROR_MESSAGE);
                     datum_textfeld.setText("");
