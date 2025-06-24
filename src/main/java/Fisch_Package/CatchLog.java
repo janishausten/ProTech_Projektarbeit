@@ -77,58 +77,7 @@ public class CatchLog extends JFrame {
         eintragen_button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String fischart = (fischart_combobox.getSelectedItem() != null) ? fischart_combobox.getSelectedItem().toString().trim() : "";
-                String datum = datum_textfeld.getText().trim();
-                String ort = ort_textfeld.getText().trim();
-
-                // Wurden alle Felder befüllt?
-                if (fischart.isEmpty() || datum.isEmpty() || ort.isEmpty() || groeße_textfeld.getText().trim().isEmpty() || gewicht_textfeld.getText().trim().isEmpty()) {
-                    JOptionPane.showMessageDialog(CatchLog, "Bitte alle Felder ausfüllen!", "Fehler", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-
-                // 'Ort' enthält mindestens einen Buchstaben, nicht nur Zahlen
-                if (!Pattern.matches(".*[a-zA-ZäöüÄÖÜß].*", ort)) {
-                    JOptionPane.showMessageDialog(CatchLog, "Bitte einen gültigen Ort eingeben (muss Text enthalten)!", "Fehler", JOptionPane.ERROR_MESSAGE);
-                    ort_textfeld.requestFocusInWindow();
-                    return;
-                }
-                // Datum auf Format prüfen
-                // Quelle: https://www.java-forum.org/thema/datum-ueberpruefen.5552/
-                if (!Pattern.matches("\\d{2}\\.\\d{2}\\.\\d{4}", datum)) {
-                    JOptionPane.showMessageDialog(CatchLog, "Bitte gib das Datum im Format TT.MM.JJJJ ein!", "Fehler", JOptionPane.ERROR_MESSAGE);
-                    datum_textfeld.setText("");
-                    datum_textfeld.requestFocusInWindow();
-                    return;
-                }
-
-                boolean gefangen = gefangen_jradiobutton.isSelected();
-                double groeße;
-                double gewicht;
-
-                // Größe u. Gewicht Zahlen überprüfen und > 0 prüfen
-                try {
-                    groeße = Double.parseDouble(groeße_textfeld.getText());
-                    gewicht = Double.parseDouble(gewicht_textfeld.getText());
-                    if (groeße <= 0 || gewicht <= 0) {
-                        throw new NumberFormatException("Größe und Gewicht müssen positiv sein.");
-                    }
-                } catch (NumberFormatException ex) {
-                    JOptionPane.showMessageDialog(CatchLog, "Bitte gültige positive Zahlen für Größe und Gewicht eingeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
-                    groeße_textfeld.setText("");
-                    gewicht_textfeld.setText("");
-                    groeße_textfeld.requestFocusInWindow();
-                    return;
-                }
-
-                // Fisch-Objekt erzeugen und speichern
-                Fisch fisch = new Fisch(fischart, groeße, gewicht, ort, datum, gefangen);
-                FischListe.add(fisch);
-
-                // Bestätigung und Felder leeren, Fokus auf Datum zurücksetzen für bessere UX
-                JOptionPane.showMessageDialog(CatchLog, "Fang erfolgreich gespeichert!", "Erfolg", JOptionPane.INFORMATION_MESSAGE);
-                clearTextfields();
-                datum_textfeld.requestFocusInWindow();
+                eintragenFisch();
             }
         });
 
@@ -136,15 +85,7 @@ public class CatchLog extends JFrame {
         ausgabe_jbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ausgabe_textarea.setText("");
-                if (FischListe.isEmpty()) {
-                    ausgabe_textarea.setText("Noch keine Fänge eingetragen.");
-                    return;
-                }
-
-                for (Fisch fisch : FischListe) {
-                    ausgabe_textarea.append(fisch.ausgeben() + "\n");
-                }
+                anzeigenAlleFische();
             }
         });
 
@@ -152,12 +93,7 @@ public class CatchLog extends JFrame {
         nurBehalten_jbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ausgabe_textarea.setText("");
-                for (Fisch fisch : FischListe) {
-                    if (fisch.isBehalten()) {
-                        ausgabe_textarea.append(fisch.ausgeben() + "\n");
-                    }
-                }
+                anzeigenBehalteneFische();
             }
         });
 
@@ -165,12 +101,7 @@ public class CatchLog extends JFrame {
         nurZurueckgesetzt_jbutton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ausgabe_textarea.setText("");
-                for (Fisch fisch : FischListe) {
-                    if (!fisch.isBehalten()) {
-                        ausgabe_textarea.append(fisch.ausgeben() + "\n");
-                    }
-                }
+                anzeigenZurueckgesetzteFische();
             }
         });
 
@@ -204,9 +135,89 @@ public class CatchLog extends JFrame {
         FischListe.add(f3);
     }
 
+    private void eintragenFisch() {
+        String fischart = (fischart_combobox.getSelectedItem() != null) ? fischart_combobox.getSelectedItem().toString().trim() : "";
+        String datum = datum_textfeld.getText().trim();
+        String ort = ort_textfeld.getText().trim();
+
+        // Wurden alle Felder befüllt?
+        if (fischart.isEmpty() || datum.isEmpty() || ort.isEmpty() || groeße_textfeld.getText().trim().isEmpty() || gewicht_textfeld.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(CatchLog, "Bitte alle Felder ausfüllen!", "Fehler", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // 'Ort' enthält mindestens einen Buchstaben, nicht nur Zahlen
+        if (!Pattern.matches(".*[a-zA-ZäöüÄÖÜß].*", ort)) {
+            JOptionPane.showMessageDialog(CatchLog, "Bitte einen gültigen Ort eingeben (muss Text enthalten)!", "Fehler", JOptionPane.ERROR_MESSAGE);
+            ort_textfeld.requestFocusInWindow();
+            return;
+        }
+
+        // Datum auf Format prüfen
+        if (!Pattern.matches("\\d{2}\\.\\d{2}\\.\\d{4}", datum)) {
+            JOptionPane.showMessageDialog(CatchLog, "Bitte gib das Datum im Format TT.MM.JJJJ ein!", "Fehler", JOptionPane.ERROR_MESSAGE);
+            datum_textfeld.setText("");
+            datum_textfeld.requestFocusInWindow();
+            return;
+        }
+
+        boolean gefangen = gefangen_jradiobutton.isSelected();
+        double groeße;
+        double gewicht;
+
+        // Größe u. Gewicht Zahlen überprüfen und > 0 prüfen
+        try {
+            groeße = Double.parseDouble(groeße_textfeld.getText());
+            gewicht = Double.parseDouble(gewicht_textfeld.getText());
+            if (groeße <= 0 || gewicht <= 0) {
+                throw new NumberFormatException("Größe und Gewicht müssen positiv sein.");
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(CatchLog, "Bitte gültige positive Zahlen für Größe und Gewicht eingeben!", "Fehler", JOptionPane.ERROR_MESSAGE);
+            groeße_textfeld.setText("");
+            gewicht_textfeld.setText("");
+            groeße_textfeld.requestFocusInWindow();
+            return;
+        }
+
+        Fisch fisch = new Fisch(fischart, groeße, gewicht, ort, datum, gefangen);
+        FischListe.add(fisch);
+
+        JOptionPane.showMessageDialog(CatchLog, "Fang erfolgreich gespeichert!", "Erfolg", JOptionPane.INFORMATION_MESSAGE);
+        clearTextfields();
+        datum_textfeld.requestFocusInWindow();
+    }
+
+    private void anzeigenAlleFische() {
+        ausgabe_textarea.setText("");
+        if (FischListe.isEmpty()) {
+            ausgabe_textarea.setText("Noch keine Fänge eingetragen.");
+            return;
+        }
+        for (Fisch fisch : FischListe) {
+            ausgabe_textarea.append(fisch.ausgeben() + "\n");
+        }
+    }
+
+    private void anzeigenBehalteneFische() {
+        ausgabe_textarea.setText("");
+        for (Fisch fisch : FischListe) {
+            if (fisch.isBehalten()) {
+                ausgabe_textarea.append(fisch.ausgeben() + "\n");
+            }
+        }
+    }
+
+    private void anzeigenZurueckgesetzteFische() {
+        ausgabe_textarea.setText("");
+        for (Fisch fisch : FischListe) {
+            if (!fisch.isBehalten()) {
+                ausgabe_textarea.append(fisch.ausgeben() + "\n");
+            }
+        }
+    }
+
     public static void main(String[] args) {
         new CatchLog();
     }
 }
-
-
