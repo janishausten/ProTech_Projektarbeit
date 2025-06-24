@@ -162,6 +162,16 @@ public class CatchLog extends JFrame {
             return;
         }
 
+        // Zusätzliche Prüfung für Tag und Monat
+        String[] parts = datum.split("\\.");
+        int tag = Integer.parseInt(parts[0]);
+        int monat = Integer.parseInt(parts[1]);
+        if (tag < 1 || tag > 31 || monat < 1 || monat > 12) {
+            JOptionPane.showMessageDialog(CatchLog, "Bitte gib einen gültigen Tag (1–31) und Monat (1–12) ein!", "Fehler", JOptionPane.ERROR_MESSAGE);
+            datum_textfeld.requestFocusInWindow();
+            return;
+        }
+
         boolean gefangen = gefangen_jradiobutton.isSelected();
         double groeße;
         double gewicht;
