@@ -30,6 +30,7 @@ public class CatchLog extends JFrame {
 
     private ArrayList<Fisch> FischListe = new ArrayList<>();
 
+
     public CatchLog() {
         setTitle("CatchLog");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
