@@ -20,8 +20,12 @@ class CatchLog {
 
   + CatchLog()
   + main(args : String[]) : void
-  - clearTextfields() : void
-  - initObjekte() : void
+  + eintragenFisch() : void
+  + anzeigenAlleFische() : void
+  + anzeigenBehalteneFische() : void
+  + anzeigenZurueckgesetzteFische() : void
+    - clearTextfields() : void
+    - initObjekte() : void
 }
 
 class Fisch {
@@ -37,7 +41,7 @@ class Fisch {
   + ausgeben() : String
 }
 
-CatchLog --> "0..*" Fisch : verwendet
+CatchLog --> "0..*" Fisch : verwaltet
 }
 
 @enduml
