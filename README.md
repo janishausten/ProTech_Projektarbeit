@@ -19,7 +19,6 @@ Angler:innen können ihre Fänge bequem erfassen, filtern und anzeigen – ganz 
 Unser Projektvideo erklärt den Use Case, die Hauptfunktionen und das Design unseres Programms.
 
 👉 [Hier geht’s zum Video](https://youtu.be/tewsiCtHkpM)
-*(Falls noch kein Link vorhanden ist, bitte später ergänzen.)*
 
 ---
 
