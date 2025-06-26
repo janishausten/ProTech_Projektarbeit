@@ -43,7 +43,7 @@ Unser Projektvideo erklärt den Use Case, die Hauptfunktionen und das Design uns
 
 ## ✉️ Feedback & Kontakt
 Bei Fragen, Anregungen oder Feedback:  
-📧 **bjerrn.sehnal@student.hnu.de**  
+📧 **bjoern.sehnal@student.hnu.de**  
 📧 **janis.hausten@student.hnu.de**
 
 ---
