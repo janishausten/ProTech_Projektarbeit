@@ -1,4 +1,4 @@
-# ProTech_Projektarbeit  
+![CatchLog_UML-UML_Diagramm___CatchLog_und_Fisch](https://github.com/user-attachments/assets/ae8f82c4-4c42-4d66-85dd-f263535c6b25)# ProTech_Projektarbeit  
 # 🎣 CatchLog – Dein digitaler Fanghelfer
 
 **CatchLog** ist eine Java-GUI-Anwendung zur einfachen Dokumentation von Fischfängen.  
@@ -38,6 +38,15 @@ Unser Projektvideo erklärt den Use Case, die Hauptfunktionen und das Design uns
 - Datenhaltung: `ArrayList<Fisch>`
 - Validierung mit regulären Ausdrücken (Regex)
 - Objektorientierter Aufbau mit eigener `Fisch`-Klasse
+
+---
+
+## 🗂 UML-Diagramm
+
+Das folgende UML-Diagramm zeigt die Struktur unserer Klassen `CatchLog` und `Fisch`, inklusive Beziehungen und wichtigsten Methoden.  
+Erstellt wurde das UML mit den IntelliJ-Plugins **PlantUML Integration** und **PlantUML Generator**.
+![CatchLog_UML-UML_Diagramm___CatchLog_und_Fisch](https://github.com/user-attachments/assets/3fe74af3-679b-4a12-9dcb-eb47f0da604a)
+
 
 ---
 
