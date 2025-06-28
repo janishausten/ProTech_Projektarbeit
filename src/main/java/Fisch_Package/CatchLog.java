@@ -39,6 +39,7 @@ public class CatchLog extends JFrame {
         setSize(1200, 600);
         setContentPane(CatchLog);
         CatchLog.setBackground(new Color(200, 220, 240));  // Hintergrundfarbe
+        setLocationRelativeTo(null);
 
         ausgabe_textarea.setEditable(false); // Textfeld nur lesbar
 
