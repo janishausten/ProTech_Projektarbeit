@@ -1,4 +1,4 @@
-![CatchLog_UML-UML_Diagramm___CatchLog_und_Fisch](https://github.com/user-attachments/assets/ae8f82c4-4c42-4d66-85dd-f263535c6b25)# ProTech_Projektarbeit  
+# ProTech_Projektarbeit  
 # 🎣 CatchLog – Dein digitaler Fanghelfer
 
 **CatchLog** ist eine Java-GUI-Anwendung zur einfachen Dokumentation von Fischfängen.  
